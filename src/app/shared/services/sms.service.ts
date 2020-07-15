@@ -8,7 +8,8 @@ import { SMSModel } from '../models/sms.model';
 })
 export class SMSService {
 
-  uri = 'http://localhost:5000/api';
+  // uri = 'http://localhost:5000/api';
+  uri = 'https://sms-group-backend.herokuapp.com/api';
 
   constructor(private http: HttpClient) { }
 
