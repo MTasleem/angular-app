@@ -30,7 +30,7 @@ export class SmsviewListComponent implements OnInit {
     if (id) {
       this.smsService.getById(id)
         .subscribe(data => {
-          this.listOfSMSData = [data['results']];
+          this.listOfSMSData = data['results'] ? [data['results']] : [];
           this.message.remove(fetchById);
         },
           err => { console.log(err) },
@@ -79,10 +79,13 @@ export class SmsviewListComponent implements OnInit {
   }
 
   deleteSMSModal(data) {
+    console.log(data)
+    let smsid = data.id;
+    let smscity = data.city;
     const id = this.message.loading('Record Deleting..', { nzDuration: 300 }).messageId;
     this.smsService.deleteSMSGroupItem(data.id)
       .subscribe(data => {
-        this.notification.success(`${data['id']} ${data['city']}`, 'Record Deleted')
+        this.notification.success(`${smsid} ${smscity}`, 'Record Deleted')
         this.initalServiceLoad();
         this.message.remove(id);
       },
