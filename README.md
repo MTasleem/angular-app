@@ -16,7 +16,7 @@ Goto angular-app folder and install npm install
 
 ## Development server
 
-Run `ng serve` for `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 Now you can see home screen load all documents from DB
 
