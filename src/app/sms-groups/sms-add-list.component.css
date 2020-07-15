@@ -70,3 +70,7 @@ footer {
     display: flex;
     justify-content: flex-end;
 }
+
+.mandatory{
+    color: red;
+}

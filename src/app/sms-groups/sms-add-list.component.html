@@ -4,35 +4,36 @@
         <p>Please fill in this form to add sms record.</p>
         <hr>
         <section>
-            <label for="id"><b>ID</b></label>
+            <label for="id"><b>NOTE: Please insert ID after 1000</b></label>
+            <label for="id"><b>ID<span class="mandatory">*</span></b></label>
             <input nz-input formControlName="id" placeholder="Enter ID" id="id" />
         </section>
         <section>
-            <label for="city"><b>City</b></label>
+            <label for="city"><b>City<span class="mandatory">*</span></b></label>
             <input nz-input formControlName="city" placeholder="Enter City" id="city" />
         </section>
         <section class="dates">
             <section>
-                <label for="start_date"><b>Start Date</b></label>
+                <label for="start_date"><b>Start Date<span class="mandatory">*</span></b></label>
                 <nz-date-picker formControlName="start_date" placeholder="Enter Start Date" (ngModelChange)="onChange($event)" [nzFormat]="dateFormat" id="start_date">
                 </nz-date-picker>
             </section>
             <section>
-                <label for="end_date"><b>End Date</b></label>
+                <label for="end_date"><b>End Date<span class="mandatory">*</span></b></label>
                 <nz-date-picker formControlName="end_date" placeholder="Enter End Date" id="end_date" (ngModelChange)="onChange($event)" [nzFormat]="dateFormat">
                 </nz-date-picker>
             </section>
         </section>
         <section>
-            <label for="price"><b>Price</b></label>
+            <label for="price"><b>Price<span class="mandatory">*</span></b></label>
             <input nz-input formControlName="price" placeholder="Enter Price" id="price" />
         </section>
         <section>
-            <label for="status"><b>Status</b></label>
+            <label for="status"><b>Status<span class="mandatory">*</span></b></label>
             <input nz-input formControlName="status" placeholder="Enter Status" id="status" />
         </section>
         <section>
-            <label for="color"><b>Color</b></label>
+            <label for="color"><b>Color<span class="mandatory">*</span></b></label>
             <input nz-input formControlName="color" placeholder="Enter Color" id="color" />
         </section>
 

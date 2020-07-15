@@ -50,19 +50,35 @@ export class SmsAddListComponent implements OnInit {
     });
   }
   AddSMSRecord() {
-    let id = this.message.loading('Adding Records..', { nzDuration: 0 }).messageId;
-    this.smsAddListForm.patchValue({
-      start_date: moment(this.startDate).format('MM/DD/YYYY'),
-      end_date: moment(this.endDate).format('MM/DD/YYYY')
-    })
-    console.log(this.smsAddListForm.value)
-    this.smsService.saveSMSGroupItem(this.smsAddListForm.value)
-      .subscribe(data => {
-        console.log(data)
-        this.message.remove(id);
-        this.smsAddListForm.reset();
+    let id = this.smsAddListForm.value.id
+    let city = this.smsAddListForm.value.city
+    let start_date = this.smsAddListForm.value.start_date
+    let end_date = this.smsAddListForm.value.end_date
+    let price = this.smsAddListForm.value.price
+    let color = this.smsAddListForm.value.color
+    let status = this.smsAddListForm.value.status
+
+    if (id && city && start_date && end_date && price && status && color) {
+      let id = this.message.loading('Adding Records..', { nzDuration: 0 }).messageId;
+      this.smsAddListForm.patchValue({
+        start_date: moment(this.startDate).format('MM/DD/YYYY'),
+        end_date: moment(this.endDate).format('MM/DD/YYYY')
       })
+      console.log(this.smsAddListForm.value)
+      this.smsService.saveSMSGroupItem(this.smsAddListForm.value)
+        .subscribe(data => {
+          console.log(data)
+          this.message.remove(id);
+          this.smsAddListForm.reset();
+        })
+    } else {
+      let id = this.message.error('Please enter all fiels ...', { nzDuration: 0 }).messageId;
+      setTimeout(() => {
+        this.message.remove(id);
+      }, 3000);
+    }
   }
+
   clearFormControls() {
     this.smsAddListForm.reset();
   }
