@@ -1,0 +1,40 @@
+<form [formGroup]="smsUserEditForm">
+  <nz-table #basicTable [nzData]="setDataFromSMSViewList" [nzShowPagination]="false" nzTableLayout="fixed">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>City</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Color</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data || []">
+        <td>
+          <input nz-input formControlName="id" readonly />
+        </td>
+        <td>
+          <input nz-input formControlName="city" />
+        </td>
+        <td>
+          <nz-date-picker formControlName="start_date" [nzFormat]="dateFormat"></nz-date-picker>
+        </td>
+        <td>
+          <nz-date-picker formControlName="end_date" [nzFormat]="dateFormat"></nz-date-picker>
+        </td>
+        <td>
+          <input nz-input formControlName="price" />
+        </td>
+        <td>
+          <input nz-input formControlName="status" />
+        </td>
+        <td>
+          <input nz-input formControlName="color" />
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</form>

@@ -1,0 +1,34 @@
+.header .inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .inner-box label {
+    font-weight: 600;
+}
+
+.search-data .inner-box {
+    justify-content: flex-end !important;
+}
+
+nz-date-picker {
+    width: 80%;
+}
+
+section.header {
+    margin-bottom: 30px;
+}
+
+.inner-box.custom-search {
+    display: flex;
+    justify-content: space-between;
+}
+.inner-box.custom-search>input {
+    width: 82%;
+}
+
+.get-data {
+    display: flex;
+    justify-content: flex-end;
+}
