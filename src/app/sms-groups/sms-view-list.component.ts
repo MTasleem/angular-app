@@ -26,8 +26,8 @@ export class SmsviewListComponent implements OnInit {
   }
 
   searchDataById(id) {
-    const fetchById = this.message.loading('Fetching Records..', { nzDuration: 0 }).messageId;
     if (id) {
+      const fetchById = this.message.loading('Fetching Records..', { nzDuration: 0 }).messageId;
       this.smsService.getById(id)
         .subscribe(data => {
           this.listOfSMSData = data['results'] ? [data['results']] : [];
@@ -36,6 +36,11 @@ export class SmsviewListComponent implements OnInit {
           err => { console.log(err) },
           () => { console.log('completed'); }
         )
+    } else {
+      let id = this.message.error('Please enter id ...', { nzDuration: 0 }).messageId;
+      setTimeout(() => {
+        this.message.remove(id);
+      }, 3000);
     }
   }
   initalServiceLoad() {
@@ -66,6 +71,11 @@ export class SmsviewListComponent implements OnInit {
         },
           err => { console.log(err) },
           () => { console.log('completed'); })
+    } else {
+      let id = this.message.error('Please enter start date and end date ...', { nzDuration: 0 }).messageId;
+      setTimeout(() => {
+        this.message.remove(id);
+      }, 3000);
     }
   }
 
